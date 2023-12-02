@@ -22,6 +22,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//reviews route
 router.get('/reviews', (req, res) => {
   try {
     res.render('reviews', {
@@ -33,7 +34,7 @@ router.get('/reviews', (req, res) => {
 }
 });
 
-
+//resturants route
 router.get('/resturants', (req, res) => {
   try {
     res.render('resturants', {
