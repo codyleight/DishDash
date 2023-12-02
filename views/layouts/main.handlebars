@@ -5,101 +5,198 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>DishDash</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-
-  <link href="assets/css/main.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="/css/jass.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-
-
-
- <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Dish Dash<span>!</span></h1>
-      </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">Resturants</a></li>
-          <li><a href="#menu">Reviews</a></li>
-          <!--
-          <li><a href="#events">Events</a></li>
-          <li><a href="#chefs">Chefs</a></li>
-          <li><a href="#gallery">Gallery</a></li> -->
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <!-- <li><a href="#contact">Contact</a></li> -->
-        </ul>
-      </nav><!-- .navbar -->
-
-      <a class="btn-book-a-table" href="#book-a-table">Login</a> <!-- Login -->
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-    </div>
-  </header><!-- End Header -->
-
-  
 <body>
-    <nav>
-        <a href="/">Home</a>
+<nav class="navbar navbar-expand-lg navbar-dark p-3 bg-danger d-flex justify-content-evenly" id="headerNav">
+  <ul class="nav-item justify-content-start">
+    <a class="nav-link mx-2 active" aria-current="page" href="#">DishDash</a>
+  </ul>
+  <div class="container-fluid d-flex justify-content-evenly">
+    <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link mx-2 active" aria-current="page" href="/">Home</a>
+        </li>
+         <li class="nav-item d-none d-lg-block">
+          
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf52BWodsEIk7EHZvMaF16FBvLl6UgzpCRtQ&usqp=CAU" alt="Apple" width="40" height="40">
+       
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="/Reviews">Reviews</a>
+        </li>
+
+       
         
-        {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-    </nav>
+        
+      </ul>
+    </div>
+  </div>
+  <ul class="nav-item">
+          <a class="nav-link mx-1" href="#">
+            {{#if loggedIn}}
+            <button id="logout" class="btn-no-style">Logout</button>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+            {{#if loggedIn}}
+            <script src="/js/logout.js"></script>
+            {{/if}}
+          </a>
+        </ul>
+</nav>
+    
+<main>
+   
+  
+    
+      
+      {{{body}}}
 
+ 
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #1c2331"
+          >
+   
+    <section
+             class="d-flex justify-content-between p-4"
+             style="background-color: #6351ce"
+             >
+    
+      <div class="me-5">
+        <span>Get connected with us!</span>
+      </div>
+     
 
-    <main>
-        {{{body}}}
-    </main>
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+    
+      <div>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      
+    </section>
+  
+
+   
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+     
+        <div class="row mt-3">
+        
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+         
+            <h6 class="text-uppercase fw-bold">Dish Dash</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+            We hope you found a great resturant to eat at!
+            </p>
+          </div>
+       
+
+         
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        
+            <h6 class="text-uppercase fw-bold">Developers</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">Cody Thompson</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Joel Lopez</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Robert Wright</a>
+            </p>
+      
+          </div>
+      
+
+        
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          
+            <h6 class="text-uppercase fw-bold">Github Links:</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">x</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">x</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">x</a>
+            </p>
+           
+          </div>
+       
+
+      
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+         
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> @gmail.com</p>
+            <p><i class="fas fa-envelope mr-3"></i> @gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> @gmail.com</p>
+            
+          </div>
+        
+        </div>
+     
+      </div>
+    </section>
+ 
+
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)">
+             ©  DishDash Resturant Reviews    
+    </div>
+  </footer>
+</div>
+   
+  
+  </main>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>
