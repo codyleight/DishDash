@@ -19,6 +19,14 @@ body {
   background-color: var(--quatrinary);
 }
 
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #3bd3db;
+}
+
 a {
   color: var(--dark);
   text-decoration: none;
