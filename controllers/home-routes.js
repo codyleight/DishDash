@@ -22,28 +22,4 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-//reviews route
-router.get('/reviews', (req, res) => {
-  try {
-    res.render('reviews', {
-    loggedIn: req.session.loggedIn,
-  });
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
-});
-
-//resturants route
-router.get('/resturants', (req, res) => {
-  try {
-    res.render('resturants', {
-    loggedIn: req.session.loggedIn,
-  });
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
-});
-
 module.exports = router;
