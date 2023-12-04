@@ -14,16 +14,16 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark p-3 bg-danger d-flex justify-content-evenly" id="headerNav">
+<nav class="navbar navbar-expand-lg navbar p-3 bg-info d-flex justify-content-evenly" id="headerNav">
   <ul class="nav-item justify-content-start">
-    <a class="nav-link mx-2 active" aria-current="page" href="/">DishDash</a>
+    <a class="nav-link mx-2 active border border-warning" aria-current="page" href="/">DishDash</a>
   </ul>
   <div class="container-fluid d-flex justify-content-evenly">
     <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto">
 
          <li class="nav-item">
-          <a class="nav-link mx-2" href="/restaurant">Restaurants</a>
+          <a class="nav-link mx-2 border border-warning" href="/restaurant">Restaurants</a>
         </li>
         
          <li class="nav-item d-none d-lg-block">
@@ -35,7 +35,7 @@
 
 
         <li class="nav-item">
-          <a class="nav-link mx-2" href="/Reviews">Reviews</a>
+          <a class="nav-link mx-2 border border-warning" href="/Reviews">Reviews</a>
         </li>
 
        
@@ -49,7 +49,7 @@
             {{#if loggedIn}}
             <button id="logout" class="btn-no-style">Logout</button>
             {{else}}
-            <a href="/login">Login</a>
+            <a class ="border border-warning" href="/login">Login</a>
             {{/if}}
             {{#if loggedIn}}
             <script src="/js/logout.js"></script>

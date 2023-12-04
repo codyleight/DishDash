@@ -50,6 +50,8 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+
+
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -140,6 +142,22 @@ router.get('/restaurant/add', (req, res) => {
   console.log(err);
   res.status(500).json(err);
 }
+});
+
+router.post('/restaurant', async (req, res) => {
+  try {
+    const { restaurant_name, food_type } = req.body;
+
+
+    const restaurant = await Restaurant.create({ restaurant_name, food_type });
+
+   
+    res.status(200).json({ message: 'Restaurant submitted successfully' });
+  } catch (error) {
+
+    console.error(error);
+    res.status(500).json({ error: 'Failed to submit restaurant' });
+  }
 });
 
 module.exports = router;
