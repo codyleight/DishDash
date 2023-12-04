@@ -1,22 +1,17 @@
-
-<!-- TODO: For each statement, for each resturant in db post them, with a clickable link to /api/resturant/id reviews-->
-
-<div class="d-flex justify-content-center resturantAdd">
-
-            <button id="resturantAdd" class="btn btn-primary resturantAdd">Add Restaurant</button>
-           
-</div>
-<div> <!-- examples -->
-  Restaurant 1:
-</div>
-
-
-<div>
-  Restaurant 2:
+<!-- TODO: For each statement, for each restaurant in db post them, with a clickable link to /api/restaurant/id reviews-->
+<div class="d-flex justify-content-center restaurantAdd">
+  <button id="restaurantAdd" class="btn btn-primary restaurantAdd">Add Restaurant</button>
 </div>
 
 <div>
-  Restaurant 3:
+  <!-- examples -->
+  {{#each restaurants}}
+    <div class="card">
+      <h2 class="restaurant-title">{{restaurant_name}}</h2>
+      <p class="foodtype">Food Type: {{food_type}}</p>
+      <a href="/api/restaurant/{{id}}/reviews" class="delete-button">Review?</a>
+    </div>
+  {{/each}}
 </div>
 
-<script src=".\js\restaurant.js"></script>
+<script src="./js/restaurant.js"></script>
