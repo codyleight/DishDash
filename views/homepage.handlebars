@@ -3,14 +3,13 @@
  <div class="container">
   <img src=" https://i2.wp.com/hipfoodiemom.com/wp-content/uploads/2020/04/IMG_9525-2.jpg" alt="Apple" width="100%" height="">
   <div class="centered">
-    <div>
-        Resturant Name
+     {{#each restaurants}}
+    <div class="card">
+      <h2 class="restaurant-title">{{restaurant_name}}</h2>
+      <p class="foodtype">Food Type: {{food_type}}</p>
+      <p>Most Recent review: Good! by: Cody Thompson</p> <!-- Example -->
     </div>
-    <!--We make a for each statement for each review here,  -->
-    <p>Example of a review top should be resturant</p>
-
-<div>
-    Post Date and User:
+  {{/each}}
 </div>
   </div>
 </div>

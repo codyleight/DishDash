@@ -5,8 +5,13 @@ const withAuth = require('../utils/auth');
 // GET for homepage
 router.get('/', async (req, res) => {
   try {
+    const restaurantData = await Restaurant.findAll();
+
+   
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
       res.render('homepage', {
       loggedIn: req.session.loggedIn,
+      restaurants: restaurants
     });
   } catch (err) {
     console.log(err);
@@ -69,6 +74,12 @@ router.get('/profile', withAuth, async (req, res) => {
 // Update the route handler for the root URL to handle "/homepage"
 router.get('/homepage', async (req, res) => {
   try {
+
+    const restaurantData = await Restaurant.findAll();
+
+   
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+
     const postData = await Post.findAll({
       include: [
         {
@@ -82,7 +93,8 @@ router.get('/homepage', async (req, res) => {
 
     res.render('homepage', { 
       posts, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      restaurants: restaurants
     });
   } catch (err) {
     res.status(500).json(err);
@@ -103,13 +115,13 @@ router.get('/reviews', (req, res) => {
 //resturants route
 router.get('/restaurant', async (req, res) => {
   try {
-    // Fetch all restaurants from the database
+  
     const restaurantData = await Restaurant.findAll();
 
-    // Convert the restaurant data to plain JSON objects
+   
     const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
 
-    // Render the restaurant Handlebars template and pass the restaurants data
+    
     res.render('restaurant', {
       loggedIn: req.session.loggedIn,
       restaurants: restaurants
