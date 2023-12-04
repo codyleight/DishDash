@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Restaurant } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET for homepage
@@ -101,20 +101,27 @@ router.get('/reviews', (req, res) => {
 });
 
 //resturants route
-router.get('/resturants', (req, res) => {
+router.get('/restaurant', async (req, res) => {
   try {
-    res.render('resturants', {
-    loggedIn: req.session.loggedIn,
-  });
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
-});
+    // Fetch all restaurants from the database
+    const restaurantData = await Restaurant.findAll();
 
-router.get('/resturants/add', (req, res) => {
+    // Convert the restaurant data to plain JSON objects
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+
+    // Render the restaurant Handlebars template and pass the restaurants data
+    res.render('restaurant', {
+      loggedIn: req.session.loggedIn,
+      restaurants: restaurants
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+router.get('/restaurant/add', (req, res) => {
   try {
-    res.render('resturantsadd', {
+    res.render('restaurantadd', {
     loggedIn: req.session.loggedIn,
   });
 } catch (err) {
