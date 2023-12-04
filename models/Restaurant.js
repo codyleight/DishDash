@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Resturants extends Model {}
+class Restaurant extends Model {}
 
-Resturants.init(
+Restaurant.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -33,8 +33,8 @@ Resturants.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'resturants',
+      modelName: 'restaurant',
     }
   );
   
-  module.exports = Resturants;
+  module.exports = Restaurant;

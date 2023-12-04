@@ -101,9 +101,9 @@ router.get('/reviews', (req, res) => {
 });
 
 //resturants route
-router.get('/resturants', (req, res) => {
+router.get('/restaurant', (req, res) => {
   try {
-    res.render('resturants', {
+    res.render('restaurant', {
     loggedIn: req.session.loggedIn,
   });
 } catch (err) {
@@ -112,9 +112,9 @@ router.get('/resturants', (req, res) => {
 }
 });
 
-router.get('/resturants/add', (req, res) => {
+router.get('/restaurant/add', (req, res) => {
   try {
-    res.render('resturantsadd', {
+    res.render('restaurantadd', {
     loggedIn: req.session.loggedIn,
   });
 } catch (err) {
