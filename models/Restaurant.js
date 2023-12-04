@@ -19,14 +19,7 @@ Restaurant.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-    UserId: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: {
-          model: 'user', 
-          key: 'id',
-        },
-      },
+   
     },
     {
       sequelize,
