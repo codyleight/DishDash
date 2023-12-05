@@ -15,7 +15,15 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     video_URL: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    review: {
       type: DataTypes.TEXT,
       allowNull: false,
     },

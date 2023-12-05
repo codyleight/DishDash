@@ -1,15 +1,57 @@
-<!-- TODO: For each statement, for each resturant, show all their associated reviews.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews Page</title>
+</head>
+<body>
 
-<div>
-  Resturant 1:
-  <div>
-    <ul>
-      <li>
-    Review 1:
-    </li>
-    <li>
-    Review:2
-    </li>
-    </ul>
-  </div>
-</div>
+    <h1>Customer Reviews</h1>
+
+    {{#if reviews.length}}
+        <ul>
+            {{#each reviews}}
+                <li>
+                    <h3>{{restaurant_name}}</h3>
+                    <p>{{review}}</p>
+                    <p>Posted by: {{username}} on {{format_date date}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No reviews available.</p>
+    {{/if}}
+
+    <script id="review-template" type="text/x-handlebars-template">
+        <!-- You can define your Handlebars template here -->
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars/dist/handlebars.min.js"></script>
+    <script>
+        // Sample data for testing
+        var reviews = [
+            { restaurant_name: "Great Product!", content: "I love this product. It exceeded my expectations.", rating: 5, author: "John Doe", date: "2023-12-04" },
+            { restaurant_name: "Not satisfied", content: "The product didn't meet my expectations. Disappointed.", rating: 2, author: "Jane Smith", date: "2023-12-03" }
+            // Add more reviews as needed
+        ];
+
+        // Helper function to format the date
+        Handlebars.registerHelper('formatDate', function (date) {
+            // Implement your date formatting logic here
+            return new Date(date).toLocaleDateString();
+        });
+
+        // Compile the Handlebars template
+        var source = document.getElementById('review-template').innerHTML;
+        var template = Handlebars.compile(source);
+
+        // Render the template with the data
+        var html = template({ reviews: reviews });
+
+        // Insert the rendered HTML into the document
+        document.body.insertAdjacentHTML('beforeend', html);
+    </script>
+
+</body>
+</html>
