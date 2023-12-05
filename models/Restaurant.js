@@ -19,6 +19,7 @@ Restaurant.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
+     
    
     },
     {

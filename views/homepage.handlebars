@@ -7,7 +7,7 @@
     <div class="card bg-info">
       <h2 class="restaurant-title d-flex justify-content-center text-danger">{{restaurant_name}}</h2>
       <p class="foodtype">Food Type: {{food_type}}</p>
-      <p>Most Recent review: Good! by: Cody Thompson</p> <!-- Example -->
+      <p>Most Recent review on {{format_date createdAt}}</p> <!-- Example -->
     </div>
   {{/each}}
 </div>
