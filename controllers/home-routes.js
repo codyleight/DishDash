@@ -1,12 +1,17 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Restaurant } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET for homepage
 router.get('/', async (req, res) => {
   try {
+    const restaurantData = await Restaurant.findAll();
+
+   
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
       res.render('homepage', {
       loggedIn: req.session.loggedIn,
+      restaurants: restaurants
     });
   } catch (err) {
     console.log(err);
@@ -45,6 +50,8 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+
+
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -69,6 +76,12 @@ router.get('/profile', withAuth, async (req, res) => {
 // Update the route handler for the root URL to handle "/homepage"
 router.get('/homepage', async (req, res) => {
   try {
+
+    const restaurantData = await Restaurant.findAll();
+
+   
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+
     const postData = await Post.findAll({
       include: [
         {
@@ -82,10 +95,68 @@ router.get('/homepage', async (req, res) => {
 
     res.render('homepage', { 
       posts, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      restaurants: restaurants
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.get('/reviews', (req, res) => {
+  try {
+    res.render('reviews', {
+    loggedIn: req.session.loggedIn,
+  });
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+});
+
+//resturants route
+router.get('/restaurant', async (req, res) => {
+  try {
+  
+    const restaurantData = await Restaurant.findAll();
+
+   
+    const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
+
+    
+    res.render('restaurant', {
+      loggedIn: req.session.loggedIn,
+      restaurants: restaurants
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+router.get('/restaurant/add', (req, res) => {
+  try {
+    res.render('restaurantadd', {
+    loggedIn: req.session.loggedIn,
+  });
+} catch (err) {
+  console.log(err);
+  res.status(500).json(err);
+}
+});
+
+router.post('/restaurant', async (req, res) => {
+  try {
+    const { restaurant_name, food_type } = req.body;
+
+
+    const restaurant = await Restaurant.create({ restaurant_name, food_type });
+
+   
+    res.status(200).json({ message: 'Restaurant submitted successfully' });
+  } catch (error) {
+
+    console.error(error);
+    res.status(500).json({ error: 'Failed to submit restaurant' });
   }
 });
 
