@@ -20,7 +20,7 @@ const blogdata = [
   {
     id: 3,
     blog_title: "Meat Was Raw",
-    video_URL: "https://www.youtube.com/embed/sFNIRxv0tEo",
+    video_URL: "https://www.youtube.com/embed/sFNIRxv0tE",
     blog_date: new Date(),
     user_id: 2,
     restaurant_id: 2,

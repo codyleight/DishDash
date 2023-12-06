@@ -20,6 +20,30 @@ router.get('/', async (req, res) => {
 });
 
 
+// Submit blog
+router.post('/restaurant/:id/review', async (req, res) => {
+  try {
+    // Log the received restaurant ID
+    console.log('Received restaurant id:', req.params.id);
+
+    const newBlog = await Blog.create({
+      blog_title: req.body.blog_title,
+      video_URL: req.body.video_URL,
+      user_id: req.session.user_id,
+      restaurant_id: req.params.id,
+      blog_date: new Date(),
+    });
+
+    // Redirect the user to the updated /restaurant/:id route
+    res.redirect(`/restaurant/${req.params.id}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
 // Login route
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {

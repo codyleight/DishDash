@@ -22,14 +22,14 @@
       <header style="font-size: large; padding: 5px;">
         Add Your Own Video Blog:
       </header>
-      <form action="/blog/{{blog.id}}/comment" method="POST" class="row">
+      <form action="/restaurant/{{restaurant.id}}/review" method="POST" class="row">
         <div class="col-md-6">
           <h3>Review Title:</h3>
-          <input id="video-blog-title" name="review_title" class="form-control" placeholder="Place your review title here..."></input>
+          <input id="video-blog-title" name="blog_title" class="form-control" placeholder="Place your review title here..."></input>
         </div>
         <div class="col-md-6">
           <h3>Video Review URL:</h3>
-          <input id="video-url-content" name="video_url" class="form-control" placeholder="Place your URL here..."></input>
+          <input id="video-url-content" name="video_URL" class="form-control" placeholder="Place your youTube short URL here, be sure to replace 'shorts' with 'embed'"></input>
         </div>
         <div class="col-md-12 mt-3 d-flex justify-content-center">
           <button id="submit-btn" type="submit" class="btn btn-primary">Submit</button>
