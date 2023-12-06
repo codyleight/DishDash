@@ -1,8 +1,13 @@
-<div class="col-md-4 mb-4">
+
+<div class="col-md-4 mb-4 bg-light">
   <div class="card">
-    <div class="card-body video-blog-details">
-      <iframe width='270' height='360' src={{video_URL}}></iframe>
-      <p class="card-text">{{blog_title}} - <span style="font-size: medium ">Posted by: {{blog.user.username}} on {{format_date blog_date}}</span></p>
+    <div class="card-body video-blog-details bg-light">
+      <div class="video-container">
+        <iframe width='270' height='360' src={{video_URL}}></iframe>
+      </div>
+      <div class="card-text-container">
+        <p class="card-text">{{blog_title}} - <span style="font-size: medium ">Posted by: {{blog.user.username}} on {{format_date blog_date}}</span></p>
+      </div>
     </div>
   </div>
 </div>

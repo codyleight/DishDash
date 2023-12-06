@@ -1,176 +1,31 @@
-<div class="container-sticky p-0 position-fixed" style="width: 100%;">
-  <img
-    src="assets/banner.png"
-    alt="Apple"
-    class="w-100"
-  />
+ 
+{{#if loggedIn}}
+  <div class="d-flex justify-content-center bg-dark text-success">
+    <span>Welcome, {{user.username}}!</span>
+  </div>
+{{/if}}
+ 
+ 
+ <div class=" d-flex  justify-content-center bg-dark text-success">
+        <span>Click Restaurants to view video Blogs, or Add new restaurants</span>
+      </div>
+
+<div class="container" style="width: 100%;">
+  <img src="assets/banner.png" alt="Apple" class="w-100" style="position: absolute; z-index: -1;">
 </div>
 
 <div class="container">
   <div class="row justify-content-center">
     {{#each restaurants}}
-      <div class="col-md-6 col-lg-4 mt-3">
-        <div class="card bg-info">
-          <h2
-            class="restaurant-title d-flex justify-content-center text-danger"
-          >{{restaurant_name}}</h2>
-          <p class="foodtype d-flex justify-content-center"> {{food_type}}</p>
+    <div class="col-md-6 col-lg-4 mt-3">
+      <a href="/restaurant/{{id}}">
+        <div class="card bg-warning">
+          <h2 class="restaurant-title d-flex justify-content-center text-danger">{{restaurant_name}}</h2>
+          <p class="foodtype d-flex justify-content-center">{{food_type}}</p>
         </div>
-      </div>
+      </a>
+    </div>
     {{/each}}
   </div>
 </div>
 
-<footer
-          class="text-center text-lg-start text-white fixed-bottom"
-          style="background-color: #1c2331"
-          >
-   
-    <section
-             class="d-flex justify-content-between p-1
-             "
-             style="background-color: #6351ce"
-             >
-    
-      <div class="me-4">
-        <span>Get connected with us!</span>
-      </div>
-     
-
-    
-      <div>
-        <a href="https://www.facebook.com/" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://twitter.com/home" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://www.google.com/" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="https://www.instagram.com/" class="text-white me-4">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/joel-lopez-173897154/" class="text-white me-4">
-          <i class="fab fa-linkedin"></i>
-        </a>
-    <a href="https://github.com/codyleight/DishDash" class="text-white">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-      
-    </section>
-  
-
-   
-    <section class="">
-  <div class="container text-center text-md-start mt-0">
- 
-    <div class="row mt-1">
-    
-      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-0">
-     
-        <h6 class="text-uppercase fw-bold">Dish Dash</h6>
-        <hr
-            class="mb-0 mt-0 d-inline-block mx-auto"
-            style="width: 60px; background-color: #7c4dff; height: 2px"
-            />
-        <p>
-          We hope you found a great restaurant to eat at!
-        </p>
-      </div>
-     
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-0">
-    
-        <h6 class="text-uppercase fw-bold">Developers</h6>
-        <hr
-            class="mb-0 mt-0 d-inline-block mx-auto"
-            style="width: 60px; background-color: #7c4dff; height: 2px"
-            />
-        <p>
-          <a href="https://www.linkedin.com/in/cody-thompson-29071b106/" class="text-white">Cody Thompson</a>
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/joel-lopez-173897154/" class="text-white">Joel Lopez</a>
-        </p>
-        <p>
-          <a href="#!" class="text-white">Robert Wright</a>
-        </p>
-  
-      </div>
-
-    
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-0">
-      
-        <h6 class="text-uppercase fw-bold">Github Links:</h6>
-        <hr
-            class="mb-0 mt-0 d-inline-block mx-auto"
-            style="width: 60px; background-color: #7c4dff; height: 2px"
-            />
-        <p>
-          <a href="https://github.com/codyleight" class="text-white">codyleight</a>
-        </p>
-        <p>
-          <a href="https://github.com/joellopez95" class="text-white">joellopez95</a>
-        </p>
-        <p>
-          <a href="https://github.com/RobertWright0830" class="text-white">RobertWright0830</a>
-        </p>
-       
-      </div>
-   
-
-
-      
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-0">
-         
-            <h6 class="text-uppercase fw-bold">Contact</h6>
-            <hr
-                class="mb-0 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p><i class="fas fa-home mr-3"></i> Codylthomp@gmail.com</p>
-            <p><i class="fas fa-envelope mr-3"></i> Jolopez.satx@gmail.com</p>
-            <p><i class="fas fa-phone mr-3"></i> RobertWright0830@aol.com</p>
-            
-          </div>
-        
-        </div>
-
-     
-        <h6 class="text-uppercase fw-bold">Contact</h6>
-        <hr
-            class="mb-0 mt-0 d-inline-block mx-auto"
-            style="width: 60px; background-color: #7c4dff; height: 2px"
-            />
-        <p></i> Codylthomp@gmail.com</p>
-        <p></i> jolopez.satx@gmail.com</p>
-        <p></i> RobertWright0830@aol.com</p>
-        
-      </div>
-    </div>
- 
-  </div>
-
-  <!-- Move the icons to the very bottom -->
-  <div class="row mt-1">
-    <div class="col-md-12 text-center">
-    <a href="https://github.com/codyleight/DishDash" class="text-white">
-      <i class="fas fa-home mr-3"></i>
-    <a href="https://google.com/" class="text-white">
-
-      <i class="fas fa-envelope mr-3"></i>
-      <i class="fas fa-phone mr-3"></i>
-    </div>
-  </div>
-</section>
-
- 
-
-    <div
-         class="text-center p-1"
-         style="background-color: rgba(0, 0, 0, 0.2)">
-             ©  DishDash Resturant Reviews    
-
-    </div>
-  </footer>

@@ -32,7 +32,25 @@ a {
   text-decoration: none;
 }
 
+.card-body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
 
+.video-container {
+  grid-row: 1 / 2;
+}
+
+.card-text-container {
+  grid-row: 2 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-text {
+  text-align: center;
+}
 header {
   padding: 40px;
   text-align: center;
@@ -157,6 +175,7 @@ img {
 }
 
 .card-body {
+  background-color: #17b1cc;
   font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
