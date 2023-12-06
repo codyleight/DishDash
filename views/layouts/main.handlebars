@@ -12,8 +12,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar p-3 bg-info d-flex justify-content-between fixed-top" id="headerNav">
+<body class="bg-info">
+  <nav class="navbar navbar-expand-lg navbar p-3 bg-info d-flex justify-content-between fixed-top bg-info" id="headerNav">
     <div class="d-flex align-items-center">
       <img src="/assets/logo.png" alt="logo" width="40" height="40">
       <a class="nav-link mx-2 active border border-warning" aria-current="page" href="/">BiteBits</a>
@@ -21,10 +21,12 @@
     <div class="d-flex align-items-center">
       <a class="nav-link mx-2 border border-warning" href="/restaurant">Restaurants</a>
     </div>
-    <ul class="nav-item">
-      <a class="nav-link mx-1" href="#">
+    <ul class="nav-item ">
+      <a class="nav-link mx-1 " href="#">
         {{#if loggedIn}}
-        <button id="logout" class="btn-no-style">Logout</button>
+   
+        <button id="logout" class="btn-no-style border-warning">Logout</button>
+        
         {{else}}
         <a class="border border-warning" href="/login">Login</a>
         {{/if}}
@@ -34,11 +36,162 @@
       </a>
     </ul>
   </nav>
+   
+   
 
-  <main class="mt-5 pt-5
-">
+  <main class="mt-5 pt-5 ">
+    <div>
     {{{body}}}
+  </div>
+  
   </main>
+
+<footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #1c2331"
+          >
+   
+    <section
+             class="d-flex justify-content-between p-1
+             "
+             style="background-color: #6351ce"
+             >
+    
+      <div class="me-4">
+        <span>Get connected with us!</span>
+      </div>
+     
+
+    
+      <div>
+        <a href="https://www.facebook.com/" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/home" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.google.com/" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://www.instagram.com/" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/joel-lopez-173897154/" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+    <a href="https://github.com/codyleight/DishDash" class="text-white">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      
+    </section>
+  
+
+   
+    <section class="">
+  <div class="container text-center text-md-start mt-0">
+ 
+    <div class="row mt-1">
+    
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-0">
+     
+        <h6 class="text-uppercase fw-bold">Dish Dash</h6>
+        <hr
+            class="mb-0 mt-0 d-inline-block mx-auto"
+            style="width: 60px; background-color: #7c4dff; height: 2px"
+            />
+        <p>
+          We hope you found a great restaurant to eat at!
+        </p>
+      </div>
+     
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-0">
+    
+        <h6 class="text-uppercase fw-bold">Developers</h6>
+        <hr
+            class="mb-0 mt-0 d-inline-block mx-auto"
+            style="width: 60px; background-color: #7c4dff; height: 2px"
+            />
+        <p>
+          <a href="https://www.linkedin.com/in/cody-thompson-29071b106/" class="text-white">Cody Thompson</a>
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/joel-lopez-173897154/" class="text-white">Joel Lopez</a>
+        </p>
+        <p>
+          <a href="#!" class="text-white">Robert Wright</a>
+        </p>
+  
+      </div>
+
+    
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-0">
+      
+        <h6 class="text-uppercase fw-bold">Github Links:</h6>
+        <hr
+            class="mb-0 mt-0 d-inline-block mx-auto"
+            style="width: 60px; background-color: #7c4dff; height: 2px"
+            />
+        <p>
+          <a href="https://github.com/codyleight" class="text-white">codyleight</a>
+        </p>
+        <p>
+          <a href="https://github.com/joellopez95" class="text-white">joellopez95</a>
+        </p>
+        <p>
+          <a href="https://github.com/RobertWright0830" class="text-white">RobertWright0830</a>
+        </p>
+       
+      </div>
+   
+
+
+      
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-0">
+         
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-0 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> Codylthomp@gmail.com</p>
+            <p><i class="fas fa-envelope mr-3"></i> Jolopez.satx@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> RobertWright0830@aol.com</p>
+            
+          </div>
+        
+        </div>
+
+     
+        
+        
+      </div>
+    </div>
+ 
+  </div>
+
+  <!-- Move the icons to the very bottom -->
+  <div class="row mt-1">
+    <div class="col-md-12 text-center">
+    <a href="https://github.com/codyleight/DishDash" class="text-white">
+      <i class="fas fa-home mr-3"></i>
+    <a href="https://google.com/" class="text-white">
+
+      <i class="fas fa-envelope mr-3"></i>
+      <i class="fas fa-phone mr-3"></i>
+    </div>
+  </div>
+</section>
+
+ 
+
+    <div
+         class="text-center p-1"
+         style="background-color: rgba(0, 0, 0, 0.2)">
+             ©  DishDash Resturant Reviews    
+
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -50,5 +203,8 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 </body>
+
+
+
 
 </html>

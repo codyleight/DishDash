@@ -6,12 +6,14 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const restaurantData = await Restaurant.findAll();
-
-   
     const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
-      res.render('homepage', {
+
+    // Assign the user object to req.session.user
+   
+    res.render('homepage', {
       loggedIn: req.session.loggedIn,
-      restaurants: restaurants
+      restaurants: restaurants,
+      user: req.session.user
     });
   } catch (err) {
     console.log(err);
