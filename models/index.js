@@ -1,6 +1,7 @@
 const User = require('./User');
 const Blog = require('./Blog');
 const Restaurant = require('./Restaurant');
+const Review = require('./Review'); 
 
 User.hasMany(Blog, { //x
     foreignKey: 'user_id', 
@@ -31,3 +32,4 @@ User.hasMany(Restaurant, { //x
   
 
 module.exports = { User, Blog, Restaurant };
+= { User, Blog, Restaurant, Review }; // Include the Review model

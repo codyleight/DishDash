@@ -20,7 +20,7 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
+    
     // URL of video blog
     video_URL: {
       type: DataTypes.STRING,
