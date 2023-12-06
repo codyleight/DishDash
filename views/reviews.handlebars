@@ -1,15 +1,43 @@
-<!-- TODO: For each statement, for each resturant, show all their associated reviews.-->
-
-<div>
-  Resturant 1:
-  <div>
-    <ul>
-      <li>
-    Review 1:
-    </li>
-    <li>
-    Review:2
-    </li>
-    </ul>
-  </div>
+<div class="blog">
+  <header style="font-size: large; padding: 5px;">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-4">{{restaurant.restaurant_name}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p class="lead">{{restaurant.food_type}}</p>
+      </div>
+    </div>
+  
+    {{#if loggedIn}}
+      <div class="row video-section">
+        {{#each restaurant.blogs}}
+          {{> videoblog_details this}} 
+        {{/each}}
+      </div>
+    </div>
+    <div class="comment-entry mt-0"> 
+      <header style="font-size: large; padding: 5px;">
+        Add Your Own Video Blog:
+      </header>
+      <form action="/blog/{{blog.id}}/comment" method="POST" class="row">
+        <div class="col-md-6">
+          <h3>Review Title:</h3>
+          <input id="video-blog-title" name="review_title" class="form-control" placeholder="Place your review title here..."></input>
+        </div>
+        <div class="col-md-6">
+          <h3>Video Review URL:</h3>
+          <input id="video-url-content" name="video_url" class="form-control" placeholder="Place your URL here..."></input>
+        </div>
+        <div class="col-md-12 mt-3 d-flex justify-content-center">
+          <button id="submit-btn" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  {{else}}
+    <a href="/login">Not logged in</a>
+  {{/if}}
 </div>
+

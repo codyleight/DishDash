@@ -52,25 +52,25 @@ router.get('/post/:id', async (req, res) => {
 
 
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.userid, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
-    });
-    console.log(userData);
-    const user = userData.get({ plain: true });
+// // Use withAuth middleware to prevent access to route
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.userid, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Post }],
+//     });
+//     console.log(userData);
+//     const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 // Update the route handler for the root URL to handle "/homepage"
@@ -118,7 +118,8 @@ router.get('/reviews', (req, res) => {
 router.get('/restaurant', async (req, res) => {
   try {
   
-    const restaurantData = await Restaurant.findAll();
+    const restaurantData = await Restaurant.findAll()
+  ;
 
    
     const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
@@ -133,16 +134,46 @@ router.get('/restaurant', async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get('/restaurant/add', (req, res) => {
+
+router.get("/restaurant/add", (req, res) => {
   try {
-    res.render('restaurantadd', {
-    loggedIn: req.session.loggedIn,
-  });
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
+    res.render("restaurantadd", {
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+
+// GET one restaurant
+router.get('/restaurant/:id', async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const dbRestaurantDataOne = await Restaurant.findByPk(req.params.id, {
+      include: [
+        {
+          model: Blog,
+          attributes: ['blog_title', 'video_URL', 'blog_date', 'user_id'],
+        },
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const restaurant = dbRestaurantDataOne.get({ plain: true });
+
+    console.log(restaurant);
+
+    res.render('reviews', { restaurant, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 router.post('/restaurant', async (req, res) => {
   try {
@@ -159,5 +190,7 @@ router.post('/restaurant', async (req, res) => {
     res.status(500).json({ error: 'Failed to submit restaurant' });
   }
 });
+
+
 
 module.exports = router;
