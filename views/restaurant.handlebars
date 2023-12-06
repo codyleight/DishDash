@@ -1,6 +1,6 @@
-<!-- TODO: For each statement, for each restaurant in db post them, with a clickable link to /api/restaurant/id reviews-->
-<div class="d-flex justify-content-center restaurantAdd">
-  <button id="restaurantAdd" class="btn btn-primary restaurantAdd">Add Restaurant</button>
+<!-- TODO: For each statement, for each restaurant in db post them, with a clickable link to /api/restaurant/id reviews -->
+<div class="d-flex justify-content-center mt-3">
+  <a href="/restaurantadd" class="btn btn-primary">Add Restaurant</a>
 </div>
 
 <div>
@@ -8,6 +8,7 @@
     <div class="card bg-info">
       <h2 class="restaurant-title d-flex justify-content-center text-danger">{{restaurant_name}}</h2>
       <p class="foodtype">Food Type: {{food_type}}</p>
+      <!-- Updated the link to use the correct path and include the restaurant id -->
       <a href="/restaurant/{{id}}" class="btn btn-light review-button d-flex justify-content-center">
         View {{restaurant_name}} Video Blogs
       </a>

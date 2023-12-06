@@ -146,7 +146,7 @@ router.get('/restaurant', async (req, res) => {
   }
 });
 
-router.get("/restaurant/add", (req, res) => {
+router.get("/restaurantadd", (req, res) => {
   try {
     res.render("restaurantadd", {
       loggedIn: req.session.loggedIn,
