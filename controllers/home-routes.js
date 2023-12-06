@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User, Restaurant } = require('../models');
+const { Blog, User, Restaurant, Review } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET for homepage
@@ -28,9 +28,11 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
-router.get('/post/:id', async (req, res) => {
+
+
+router.get('/blog/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const postData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -39,10 +41,10 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
 
-    const post = postData.get({ plain: true });
+    const blog = blogData.get({ plain: true });
 
-    res.render('post', {
-      ...post,
+    res.render('blog', {
+      ...blog,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -82,7 +84,7 @@ router.get('/homepage', async (req, res) => {
    
     const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
 
-    const postData = await Post.findAll({
+    const blogData = await Blog.findAll({
       include: [
         {
           model: User,
@@ -91,10 +93,10 @@ router.get('/homepage', async (req, res) => {
       ],
     });
 
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const blog = blogData.map((blog) => blog.get({ plain: true }));
 
     res.render('homepage', { 
-      posts, 
+      blog, 
       logged_in: req.session.logged_in,
       restaurants: restaurants
     });
@@ -103,15 +105,24 @@ router.get('/homepage', async (req, res) => {
   }
 });
 
-router.get('/reviews', (req, res) => {
+// Reviews route
+router.get('/reviews', async (req, res) => {
   try {
+    // Assuming you have a Review model with a findAll method
+    const reviewData = await Review.findAll();
+
+    // Map the reviews data to plain objects
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+
+    // Render the reviews page using the Handlebars template
     res.render('reviews', {
-    loggedIn: req.session.loggedIn,
-  });
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
+      loggedIn: req.session.loggedIn,
+      reviews: reviews,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
 });
 
 //resturants route
