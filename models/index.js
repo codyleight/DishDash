@@ -3,23 +3,33 @@ const Blog = require('./Blog');
 const Restaurant = require('./Restaurant');
 const Review = require('./Review'); 
 
-User.hasMany(Blog, {
-  foreignKey: 'UserId', 
-  onDelete: 'CASCADE'
-});
+User.hasMany(Blog, { //x
+    foreignKey: 'user_id', 
+    onDelete: 'CASCADE'
+  });
+  
+  Blog.belongsTo(User, { //x
+    foreignKey: 'user_id',
+  });
 
-Blog.belongsTo(User, {
-  foreignKey: 'UserId',
-});
+User.hasMany(Restaurant, { //x
+    foreignKey: 'user_id', 
+    onDelete: 'CASCADE'
+  });
+  
+  Restaurant.belongsTo(User, { //x
+    foreignKey: 'user_id',
+  });
 
-// Add associations for the Review model
-User.hasMany(Review, {
-  foreignKey: 'UserId',
-  onDelete: 'CASCADE',
-});
+  Restaurant.hasMany(Blog, { //x
+    foreignKey: 'restaurant_id', 
+    onDelete: 'CASCADE'
+  });
 
-Review.belongsTo(User, {
-  foreignKey: 'UserId',
-});
+  Blog.belongsTo(Restaurant, { //x
+    foreignKey: 'restaurant_id',
+  });
+  
 
-module.exports = { User, Blog, Restaurant, Review }; // Include the Review model
+module.exports = { User, Blog, Restaurant };
+= { User, Blog, Restaurant, Review }; // Include the Review model

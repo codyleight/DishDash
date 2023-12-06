@@ -129,7 +129,8 @@ router.get('/reviews', async (req, res) => {
 router.get('/restaurant', async (req, res) => {
   try {
   
-    const restaurantData = await Restaurant.findAll();
+    const restaurantData = await Restaurant.findAll()
+  ;
 
    
     const restaurants = restaurantData.map((restaurant) => restaurant.get({ plain: true }));
@@ -144,16 +145,46 @@ router.get('/restaurant', async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get('/restaurant/add', (req, res) => {
+
+router.get("/restaurant/add", (req, res) => {
   try {
-    res.render('restaurantadd', {
-    loggedIn: req.session.loggedIn,
-  });
-} catch (err) {
-  console.log(err);
-  res.status(500).json(err);
-}
+    res.render("restaurantadd", {
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+
+// GET one restaurant
+router.get('/restaurant/:id', async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const dbRestaurantDataOne = await Restaurant.findByPk(req.params.id, {
+      include: [
+        {
+          model: Blog,
+          attributes: ['blog_title', 'video_URL', 'blog_date', 'user_id'],
+        },
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const restaurant = dbRestaurantDataOne.get({ plain: true });
+
+    console.log(restaurant);
+
+    res.render('reviews', { restaurant, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 router.post('/restaurant', async (req, res) => {
   try {
