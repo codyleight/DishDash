@@ -3,7 +3,7 @@ const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Submit blog
-router.post('/restaurant/:id/blog', async (req, res) => {
+router.post('/restaurant/:id/review', async (req, res) => {
   try {
     // Log the received restaurant ID
     console.log('Received restaurant id:', req.params.id);
