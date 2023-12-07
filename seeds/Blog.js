@@ -19,8 +19,16 @@ const blogdata = [
   },
   {
     id: 3,
-    blog_title: "Meat Was Raw",
-    video_URL: "https://www.youtube.com/embed/sFNIRxv0tE",
+    blog_title: "Salt Bae vs Gordon Ramsay",
+    video_URL: "https://www.youtube.com/embed/vbDj69urC2o",
+    blog_date: new Date(),
+    user_id: 2,
+    restaurant_id: 2,
+  },
+  {
+    id: 4,
+    blog_title: "Is Salt Bae Worth It?",
+    video_URL: "https://www.youtube.com/embed/ah12OxMdnZ4",
     blog_date: new Date(),
     user_id: 2,
     restaurant_id: 2,
